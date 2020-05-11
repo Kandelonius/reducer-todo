@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useReducer } from "react";
+import { reducer, initialState } from "../reducers/reducer";
 
 
 class TodoForm extends React.Component {
@@ -7,29 +8,31 @@ class TodoForm extends React.Component {
         this.state = {
             item: ""
         }
+        const [newTask, setNewTask] = useState("");
+        const [state, dispatch] = useReducer(reducer, initialState);
     }
-    addItem = itemName => {
-        const newTask = {
-            task: itemName,
-            completed: false,
-            id: Date.now()
-        };
-        this.setState({
-            tasks: [...this.state.tasks, newTask]
-        });
-    };
+    // addItem = itemName => {
+    //     const newTask = {
+    //         task: itemName,
+    //         completed: false,
+    //         id: Date.now()
+    //     };
+    //     this.setState({
+    //         tasks: [...this.state.tasks, newTask]
+    //     });
+    // };
     handleChanges = evt => {
         this.setState({
             item: evt.target.value
         })
     }
-    submitForm = evt => {
-        evt.preventDefault();
-        this.props.addItem(this.state.item);
-        this.setState({
-            item: ""
-        });
-    };
+    // submitForm = evt => {
+    //     evt.preventDefault();
+    //     this.props.addItem(this.state.item);
+    //     this.setState({
+    //         item: ""
+    //     });
+    // };
     render() {
         return (
             <form onSubmit={this.submitForm}>
