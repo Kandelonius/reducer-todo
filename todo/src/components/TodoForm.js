@@ -8,8 +8,6 @@ class TodoForm extends React.Component {
             something: ""
         }
     }
-
-
     handleChanges = evt => {
         this.setState({
             something: evt.target.value

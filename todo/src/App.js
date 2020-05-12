@@ -3,29 +3,10 @@ import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 import { initialState, reducer } from './reducers/reducer';
 
-// class App extends React.Component {
-//   constructor() {
-//     super();
 const App = props => {
   console.log(initialState);
   const [newTask, setNewTask] = useState("");
   const [state, dispatch] = useReducer(reducer, initialState);
-  // state = {
-  //   tasks: [
-  //     {
-  //       task: 'Learn about reducers',
-  //       completed: false,
-  //       id: 3892987589
-  //     },
-  //     {
-  //       task: 'Add reducers to store or something',
-  //       completed: false,
-  //       id: 3892987587
-  //     }
-  //   ],
-  //   task: ''
-  // };
-  // }
   const addItem = itemName => {
     const newTask = {
       task: itemName,
@@ -52,12 +33,10 @@ const App = props => {
     })
   };
   const clearcompleted = evt => {
-    // console.log(evt)
     evt.preventDefault();
     let tasks = state.tasks.filter(tasks => !tasks.completed);
     dispatch({ tasks });
   };
-  // render() {
   return (
     <div>
       <h2>Tasks to complete!</h2>
@@ -67,7 +46,6 @@ const App = props => {
         handleClear={clearcompleted} />
     </div>
   );
-  // }
 }
 
 export default App;
