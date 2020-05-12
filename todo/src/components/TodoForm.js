@@ -1,38 +1,42 @@
-import React from 'react';
+import React, { useState, useReducer } from "react";
+import { initialState, reducer } from '../reducers/reducer';
 
-
-class TodoForm extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            something: ""
-        }
-    }
-    handleChanges = evt => {
-        this.setState({
-            something: evt.target.value
+const TodoForm = props => {
+    const [newTask, setNewTask] = useState("");
+    const [state, dispatch] = useReducer(reducer, initialState);
+    console.log('state in todoform',state);
+    // constructor() {
+    //     super();
+    //     this.state = {
+    //         something: ""
+    //     }
+    // }
+    const handleChanges = evt => {
+        dispatch({
+            task: evt.target.value
         })
     }
-    submitForm = evt => {
+    const submitForm = evt => {
         evt.preventDefault();
-        this.props.addItem(this.state.something);
-        this.setState({
+        props.addItem(state.something);
+        dispatch({
             something: ""
         });
     };
-    render() {
+    // render() {
+        
         return (
-            <form onSubmit={this.submitForm}>
+            <form onSubmit={submitForm}>
                 <input
-                    onChange={this.handleChanges}
+                    onChange={handleChanges}
                     type="text"
                     name="task"
-                    value={this.state.something}
+                    value={newTask}
                 />
-                <button onClick={this.props.handleClear}>Add</button>
+                <button onClick={props.handleClear}>Add</button>
             </form>
         );
-    }
+    // }
 }
 
 export default TodoForm;
