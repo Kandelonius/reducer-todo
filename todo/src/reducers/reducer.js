@@ -2,7 +2,7 @@ import React, { useState, useReducer } from "react";
 
 
 export const initialState = {
-    // tasks: [
+    // initialTasks: [
     //     {
     //         item: 'Learn about reducers',
     //         completed: false,
