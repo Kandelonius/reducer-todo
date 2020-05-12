@@ -2,18 +2,18 @@ import React, { useState, useReducer } from "react";
 
 
 export const initialState = {
-    // initialTasks: [
-    //     {
-    //         item: 'Learn about reducers',
-    //         completed: false,
-    //         id: 3892987589
-    //     },
-    //     {
-    //         item: 'Add reducers to store or something',
-    //         completed: false,
-    //         id: 3892987587
-    //     }
-    // ]
+    tasks: [
+        {
+            item: 'Learn about reducers',
+            completed: false,
+            id: 3892987589
+        },
+        {
+            item: 'Add reducers to store or something',
+            completed: false,
+            id: 3892987587
+        }
+    ]
 };
 export const reducer = (state, action) => {
     switch (action.type) {
