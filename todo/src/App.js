@@ -4,9 +4,11 @@ import TodoForm from './components/TodoForm';
 import { initialState, reducer } from './reducers/reducer';
 
 const App = props => {
-  // console.log(initialState);
-  const [newTask, setNewTask] = useState("");
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  
+  // console.log(initialState);
+  // const [newTask, setNewTask] = useState("");
   // const addItem = itemName => {
   //   const newTask = {
   //     task: itemName,

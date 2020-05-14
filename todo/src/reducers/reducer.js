@@ -14,21 +14,24 @@ export const initialState = {
     ]
 };
 export const reducer = (state, action) => {
-    console.log('in red', state);
-    if (action.type === "ADD_TASK") {
-        return {
-            ...state,
-            tasks: [
-                ...state.tasks,
-                {
-                    task: action.payload,
-                    completed: false,
-                    id: Date.now()
-                }
-            ]
-        };
+    console.log('in red', action.payload);
+    switch (action.type) {
+        case "ADD_TASK":
+            return {
+                ...state,
+                tasks: [
+                    {
+                        task: action.payload,
+                        completed: false,
+                        id: Date.now()
+                    },
+                    ...state.tasks
+                ]
+            };
+        default:
+            return state;
+        }
     }
-}
             // switch (action.type) {
                 //     case 'ADD_TODO':
                 //         return {
