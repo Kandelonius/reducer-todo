@@ -14,6 +14,7 @@ export const initialState = {
     ]
 };
 export const reducer = (state, action) => {
+    console.log('in red', state);
     if (action.type === "ADD_TASK") {
         return {
             ...state,

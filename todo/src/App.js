@@ -7,16 +7,16 @@ const App = props => {
   // console.log(initialState);
   const [newTask, setNewTask] = useState("");
   const [state, dispatch] = useReducer(reducer, initialState);
-  const addItem = itemName => {
-    const newTask = {
-      task: itemName,
-      completed: false,
-      id: Date.now()
-    };
-    dispatch({
-      tasks: [...state.tasks, newTask]
-    });
-  };
+  // const addItem = itemName => {
+  //   const newTask = {
+  //     task: itemName,
+  //     completed: false,
+  //     id: Date.now()
+  //   };
+  //   dispatch({
+  //     tasks: [...state.tasks, newTask]
+  //   });
+  // };
   // const toggleTask = (clickedId) => {
   //   const newTaskList = state.tasks.map((item) => {
   //     if (item.id === clickedId) {
@@ -40,8 +40,11 @@ const App = props => {
   return (
     <div>
       <h2>Tasks to complete!</h2>
-      <TodoForm addItem={addItem} />
-      <TodoList tasks={state.tasks}
+      <TodoForm 
+      // addItem={addItem}
+       />
+      <TodoList 
+        tasks={state.tasks}
         // handleToggleTask={toggleTask}
         // handleClear={clearcompleted} 
         />
